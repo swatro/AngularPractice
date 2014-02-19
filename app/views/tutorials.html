@@ -6,7 +6,7 @@
     <button ng-click='addATutorial()'> Add a Tutorial  </button>
 </section>
 
-<div>
+<div ng-show="!showTutorialForm">
     <h3> {{tutorials.header}}</h3>
     <ul>
         <li ng-repeat="tutorial in tutorials.list">
@@ -16,7 +16,9 @@
     </ul>
 </div>
 
+
 <form ng-show="showTutorialForm">
+    <h3> Add a Tutorial</h3>
     Name: <input type="text" ng-model="tutorialToAdd.name"/>
     URL:  <input type="text" ng-model="tutorialToAdd.url">
     <button ng-click="submitForm(tutorialToAdd)"> Submit </button>

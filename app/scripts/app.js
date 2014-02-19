@@ -19,4 +19,11 @@ angular.module('angularProjecApp', [
       .otherwise({
         redirectTo: '/'
       });
+  })
+  .factory('myService', function($http){
+    return {
+        getTutorialData: function(callback){
+            $http.get('/data/tutorials.json').success(callback);
+        }
+    };
   });

@@ -20,10 +20,17 @@ angular.module('angularProjecApp', [
         redirectTo: '/'
       });
   })
-  .factory('myService', function($http){
+  .factory('myService', function(){
+    var data = {
+        "Javascript": [{name: "example name", url: "thisurl.com"}],
+        "Agile": [{name: "example agile", url: "agile.com"}]
+    };
     return {
         getTutorialData: function(callback){
-            $http.get('/data/tutorials.json').success(callback);
+            callback(data);
+        },
+        addTutorialData: function(input){
+            data[input.type].push(input.tutorial);
         }
     };
   });

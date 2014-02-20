@@ -26,6 +26,12 @@ angular.module('angularProjecApp')
         };
 
         $scope.submitForm = function(){
+            myService.addTutorialData({type: 'Javascript', tutorial : {name: $scope.tutorialToAdd.name, url: $scope.tutorialToAdd.url}});
+            $scope.resetForm();
         };
 
+        $scope.resetForm = function(){
+            $scope.tutorialToAdd.name = '';
+            $scope.tutorialToAdd.url = '';
+        };
     });
